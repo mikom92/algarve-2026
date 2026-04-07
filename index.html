@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algarve 9–16 kwi 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sand: #F5EDD9;
+  --sand-dark: #E8D9B8;
+  --ocean: #1B4F72;
+  --ocean-light: #2E86AB;
+  --terracotta: #C0513A;
+  --olive: #4A6741;
+  --purple: #5C4B8A;
+  --cream: #FDFAF4;
+  --ink: #1A1410;
+  --muted: #7A6E60;
+  --border: rgba(26,20,16,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Header */
+.hero {
+  background: var(--ocean);
+  color: white;
+  padding: 2.5rem 1.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: -30px; left: -20px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -40px; right: -30px;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+}
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.5rem;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.hero-title em {
+  font-style: italic;
+  font-weight: 400;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1.25rem;
+}
+.hero-pill {
+  background: rgba(255,255,255,0.12);
+  border: 0.5px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  font-size: 12px;
+  padding: 4px 12px;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Nav */
+.nav-wrap {
+  background: var(--ocean);
+  border-top: 0.5px solid rgba(255,255,255,0.1);
+  padding: 0 1rem;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav-wrap::-webkit-scrollbar { display: none; }
+.nav-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.75rem 1rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-btn.active {
+  color: white;
+  border-bottom-color: var(--sand);
+}
+
+/* Content */
+.content { padding: 1.5rem 1rem 4rem; max-width: 680px; margin: 0 auto; }
+
+/* View panels */
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* Legend */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.25rem;
+  padding: 0.75rem 1rem;
+  background: var(--sand);
+  border-radius: 10px;
+}
+.leg {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.leg-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Day cards (overview) */
+.day-card {
+  background: white;
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.875rem;
+}
+.day-card-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.day-badge {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background: var(--sand);
+  color: var(--muted);
+  padding: 3px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.day-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.tag {
+  font-size: 12px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  line-height: 1.5;
+}
+.tag-b { background: #E6F1FB; color: #0C447C; }
+.tag-a { background: #FFF0D9; color: #8A5000; }
+.tag-g { background: #EAF3DE; color: #2E5C1A; }
+.tag-p { background: #EEEDFE; color: #3C3489; }
+.tag-r { background: #FCEBEB; color: #791F1F; }
+
+/* Separator with date */
+.date-sep {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 1.5rem 0 1rem;
+}
+.date-sep-line { flex: 1; height: 0.5px; background: var(--border); }
+.date-sep-label {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Timeline (detail) */
+.tl { position: relative; padding-left: 28px; }
+.tl::before {
+  content: '';
+  position: absolute;
+  left: 9px; top: 6px; bottom: 6px;
+  width: 1px;
+  background: var(--border);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 18px;
+}
+.tl-dot {
+  position: absolute;
+  left: -22px; top: 5px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid #ccc;
+  background: white;
+}
+.tl-dot.sight { background: #E6F1FB; border-color: #185FA5; }
+.tl-dot.food  { background: #FFF0D9; border-color: #BA7517; }
+.tl-dot.tip   { background: #EAF3DE; border-color: #3B6D11; }
+.tl-dot.hidden{ background: #EEEDFE; border-color: #534AB7; }
+.tl-dot.warn  { background: #FCEBEB; border-color: #A32D2D; }
+.tl-time {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.tl-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+.tl-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* Alert / note boxes */
+.note-box {
+  background: var(--sand);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #5a4e3a;
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+.warn-box {
+  background: #FFF5E6;
+  border-left: 3px solid #E8A83A;
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #7A5500;
+  line-height: 1.55;
+  margin-top: 1rem;
+}
+.info-box {
+  background: #EAF2FB;
+  border-left: 3px solid #378ADD;
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #0C447C;
+  line-height: 1.55;
+  margin-top: 0.75rem;
+}
+
+/* Section header in detail */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--ocean);
+  margin-bottom: 0.25rem;
+}
+.section-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
+/* Praktyczne info */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 1.25rem;
+}
+.info-card {
+  background: white;
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  padding: 0.875rem 1rem;
+}
+.info-card-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.info-card-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.info-card-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Checklist styles */
+.checklist-section {
+  margin-bottom: 1.5rem;
+}
+.checklist-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ocean);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.checklist-heading .cl-icon { font-size: 1rem; }
+.cl-progress {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  margin-left: auto;
+}
+.cl-bar-wrap {
+  height: 3px;
+  background: var(--sand-dark);
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+.cl-bar {
+  height: 100%;
+  background: var(--olive);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-bottom: 2px;
+  user-select: none;
+}
+.checklist-item:hover { background: var(--sand); }
+.checklist-item.done { opacity: 0.45; }
+.checklist-item.done .cl-label { text-decoration: line-through; }
+.cl-checkbox {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--muted);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+  background: white;
+}
+.checklist-item.done .cl-checkbox {
+  background: var(--olive);
+  border-color: var(--olive);
+}
+.cl-check-svg { display: none; }
+.checklist-item.done .cl-check-svg { display: block; }
+.cl-label {
+  font-size: 13.5px;
+  color: var(--ink);
+  line-height: 1.45;
+  flex: 1;
+}
+.cl-sub {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+.cl-tag {
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  white-space: nowrap;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.cl-tag-red { background: #FCEBEB; color: #791F1F; }
+.cl-tag-blue { background: #E6F1FB; color: #0C447C; }
+.cl-tag-green { background: #EAF3DE; color: #2E5C1A; }
+.cl-tag-amber { background: #FFF0D9; color: #8A5000; }
+.cl-tag-purple { background: #EEEDFE; color: #3C3489; }
+/* Navigation buttons */
+.nav-btns {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.nav-btn-maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s, transform 0.1s;
+  line-height: 1.4;
+}
+.nav-btn-maps:hover { opacity: 0.82; transform: translateY(-1px); }
+.nav-btn-maps:active { transform: translateY(0); }
+.nav-btn-maps.gmaps {
+  background: #E8F0FE;
+  color: #1A56C9;
+}
+.nav-btn-maps.waze {
+  background: #FFF6D9;
+  color: #8A6000;
+}
+.nav-btn-maps svg {
+  width: 12px; height: 12px;
+  flex-shrink: 0;
+}
+
+.cl-reset-btn {
+  font-size: 11px;
+  color: var(--muted);
+  background: none;
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.15s;
+}
+.cl-reset-btn:hover { background: var(--sand); }
+.cl-summary-box {
+  background: white;
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  padding: 0.875rem 1rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.cl-summary-stat { text-align: center; flex: 1; min-width: 60px; }
+.cl-summary-num {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ocean);
+  line-height: 1;
+}
+.cl-summary-lbl {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">Plan podróży · Algarve 2026</div>
+  <div class="hero-title">Portugal,<br><em>aqui vamos!</em></div>
+  <div class="hero-meta">
+    <span class="hero-pill">FR6247 · 9 kwi 19:50 WAW</span>
+    <span class="hero-pill">FR6246 · 16 kwi 14:20 FAO</span>
+    <span class="hero-pill">Baza: Ferragudo · check-in 15:00</span>
+    <span class="hero-pill">Check-out 16 kwi 12:00</span>
+    <span class="hero-pill">Rua de Vale da Azenhaga · HMT9FC5JSQ</span>
+  </div>
+</div>
+
+<div class="nav-wrap" id="nav">
+  <button class="nav-btn active" onclick="show('overview', this)">Przegląd</button>
+  <button class="nav-btn" onclick="show('day1', this)">pt 10</button>
+  <button class="nav-btn" onclick="show('day2', this)">sob 11</button>
+  <button class="nav-btn" onclick="show('day3', this)">nd 12</button>
+  <button class="nav-btn" onclick="show('day4', this)">pon 13</button>
+  <button class="nav-btn" onclick="show('day5', this)">wt 14</button>
+  <button class="nav-btn" onclick="show('day6', this)">śr 15</button>
+  <button class="nav-btn" onclick="show('day7', this)">czw 16</button>
+  <button class="nav-btn" onclick="show('info', this)">Praktyczne</button>
+  <button class="nav-btn" onclick="show('zakupy', this)">🛍️ Zakupy</button>
+  <button class="nav-btn" onclick="show('pakowanie', this)">🧳 Pakowanie</button>
+</div>
+
+<div class="content">
+
+<!-- ======================== OVERVIEW ======================== -->
+<div id="panel-overview" class="panel active">
+  <div class="legend">
+    <div class="leg"><div class="leg-dot" style="background:#378ADD"></div> widoki</div>
+    <div class="leg"><div class="leg-dot" style="background:#BA7517"></div> jedzenie</div>
+    <div class="leg"><div class="leg-dot" style="background:#3B6D11"></div> rada</div>
+    <div class="leg"><div class="leg-dot" style="background:#534AB7"></div> mniej znane</div>
+  </div>
+
+  <div class="day-card" style="border-left: 3px solid var(--ocean);">
+    <div class="day-card-header">
+      <div class="day-badge">czw 9 kwi · przylot 23:10</div>
+      <div class="day-name">Lądowanie w Faro</div>
+    </div>
+    <div class="tags-row">
+      <span class="tag tag-g">~45 min jazdy do Ferragudo</span>
+      <span class="tag tag-g">check-in i spać</span>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-card-header">
+      <div class="day-badge">pt 10 kwi · lokalny dzień</div>
+      <div class="day-name">Ferragudo + Portimão</div>
+    </div>
+    <div class="tags-row">
+      <span class="tag tag-b">Ferragudo stare miasto</span>
+      <span class="tag tag-b">zamek nad rzeką</span>
+      <span class="tag tag-p">targ ryb Portimão</span>
+      <span class="tag tag-a">cataplana na lunch</span>
+      <span class="tag tag-g">spokojny rozgrzewkowy dzień</span>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-card-header">
+      <div class="day-badge">sob 11 kwi · ~80 km</div>
+      <div class="day-name">Lagos + Ponta da Piedade</div>
+    </div>
+    <div class="tags-row">
+      <span class="tag tag-b">klify Ponta da Piedade</span>
+      <span class="tag tag-b">stare miasto Lagos</span>
+      <span class="tag tag-g">rejs łódką (nie schody!)</span>
+      <span class="tag tag-a">seafood obiad</span>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-card-header">
+      <div class="day-badge">nd 12 kwi · ~120 km</div>
+      <div class="day-name">Sagres + Cabo de São Vicente</div>
+    </div>
+    <div class="tags-row">
+      <span class="tag tag-b">Fortaleza de Sagres</span>
+      <span class="tag tag-b">Cabo São Vicente — koniec świata</span>
+      <span class="tag tag-p">Praia do Beliche</span>
+      <span class="tag tag-a">zachód słońca na przylądku</span>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-card-header">
+      <div class="day-badge">pon 13 kwi · ~60 km</div>
+      <div class="day-name">Silves + Monchique</div>
+    </div>
+    <div class="tags-row">
+      <span class="tag tag-b">zamek Silves (mauretański)</span>
+      <span class="tag tag-p">górska wioska Monchique</span>
+      <span class="tag tag-p">Foia 902m — oba wybrzeża</span>
+      <span class="tag tag-a">kuchnia górska + medronho</span>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-card-header">
+      <div class="day-badge">wt 14 kwi · ~90 km</div>
+      <div class="day-name">Faro + Ria Formosa</div>
+    </div>
+    <div class="tags-row">
+      <span class="tag tag-b">stare miasto Faro</span>
+      <span class="tag tag-p">kaplica kości</span>
+      <span class="tag tag-b">rejs po lagunach</span>
+      <span class="tag tag-p">Ilha Deserta</span>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-card-header">
+      <div class="day-badge">śr 15 kwi · ~100 km</div>
+      <div class="day-name">Tavira + Cacela Velha</div>
+    </div>
+    <div class="tags-row">
+      <span class="tag tag-b">Tavira — miasto mostów</span>
+      <span class="tag tag-p">Cacela Velha — sekretna wioska</span>
+      <span class="tag tag-a">owoce morza przy rzece</span>
+      <span class="tag tag-g">najłatwiejszy dzień dla cioci</span>
+    </div>
+  </div>
+
+  <div class="day-card" style="border-left: 3px solid var(--terracotta);">
+    <div class="day-card-header">
+      <div class="day-badge">czw 16 kwi · lot 14:20</div>
+      <div class="day-name">Carvoeiro + powrót</div>
+    </div>
+    <div class="tags-row">
+      <span class="tag tag-b">Algar Seco w Carvoeiro</span>
+      <span class="tag tag-a">ostatnie pastéis de nata</span>
+      <span class="tag tag-g">wyjazd do Faro maks. 11:15</span>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== DAY 1: piątek ======================== -->
+<div id="panel-day1" class="panel">
+  <div class="section-title">Piątek, 10 kwietnia</div>
+  <div class="section-sub">Ferragudo + Portimão · lokalny dzień rozgrzewkowy · <strong>Portimão: 5 min jazdy</strong></div>
+  <div class="note-box">Po nocnym locie nie planujemy maratonów. Ferragudo to jedno z najpiękniejszych miasteczek rybackich Algarve — warto poświęcić mu cały ranek spokojnie.</div>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-dot food"></div>
+      <div class="tl-time">9:00 – 10:00</div>
+      <div class="tl-title">Śniadanie w Ferragudo</div>
+      <div class="tl-desc">Café Bar Central lub pastelaria przy głównym placu — bifanas, pastéis de nata, galão (mleczna kawa). Usiąść na zewnątrz i popatrzeć na rybaków wracających z połowu.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Café+Bar+Central+Ferragudo+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Café+Bar+Central+Ferragudo+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot sight"></div>
+      <div class="tl-time">10:00 – 11:30</div>
+      <div class="tl-title">Spacer po Ferragudo</div>
+      <div class="tl-desc">Wąskie uliczki białych domów, kwiaty bugenwilli, Castelo de São João do Arade (widok z nabrzeża). Promenadka nad rzeką Arade z widokiem na Portimão. Teren bardzo płaski, komfortowy z kijkami.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Ferragudo+old+town+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.1077,-8.5131&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot hidden"></div>
+      <div class="tl-time">11:30 – 12:30</div>
+      <div class="tl-title">Praia Grande de Ferragudo</div>
+      <div class="tl-desc">Szeroka plaża zaraz za miasteczkiem — w kwietniu prawie pusta. Dostęp płaski od promenady. Pierwszy kontakt z Atlantykiem.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Praia+Grande+Ferragudo+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Praia+Grande+Ferragudo&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot food"></div>
+      <div class="tl-time">13:00 – 14:30</div>
+      <div class="tl-title">Lunch: Tasca da Bela lub A Lanterna</div>
+      <div class="tl-desc">Oba w Ferragudo, oba z widokiem na rzekę. Polecane: ameijoas na bulhão pato (małże z czosnkiem w winie), cataplana de marisco, grelhado misto. Ceny ok. 15–22 € na osobę.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Tasca+da+Bela+Ferragudo+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Tasca+da+Bela+Ferragudo&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot hidden"></div>
+      <div class="tl-time">15:30 – 17:00</div>
+      <div class="tl-title">Portimão — targ i nabrzeże</div>
+      <div class="tl-desc">5 min samochodem przez most. Mercado Municipal de Portimão (piątek = świeże ryby). Nabrzeże Arade. Zakupy: designerskie konserwy rybne jako prezent — są w każdym sklepie za 3–5 €.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Mercado+Municipal+Portimão+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Mercado+Municipal+Portimão+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot tip"></div>
+      <div class="tl-time">18:00 – 20:30</div>
+      <div class="tl-title">Powrót + aperitivo na tarasie</div>
+      <div class="tl-desc">Pingo Doce Portimão — supermarket z gotowymi daniami i lokalnym winem za grosze. W kwietniu słońce zachodzi ok. 20:30 — warto złapać ten moment z Airbnb.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Pingo+Doce+Portimão+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Pingo+Doce+Portimão&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== DAY 2: sobota ======================== -->
+<div id="panel-day2" class="panel">
+  <div class="section-title">Sobota, 11 kwietnia</div>
+  <div class="section-sub">Lagos + Ponta da Piedade · <strong>~35 min jazdy</strong> · wyjazd ok. 9:00</div>
+  <div class="note-box">Ikona Algarve — złote klify i turkusowe laguny. Sobota = więcej ludzi, dlatego klify najlepiej rano. Zamiast stromych schodów w dół — rejs łódką: widok lepszy i bez wysiłku.</div>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-dot food"></div>
+      <div class="tl-time">9:00 – 9:45</div>
+      <div class="tl-title">Śniadanie: Pastelaria Mulato (Lagos)</div>
+      <div class="tl-desc">Klasyczna cukiernia przy starym mieście. Tosta mista, pastéis, bica. Bez tłumów o tej godzinie.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Pastelaria+Mulato+Lagos+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Pastelaria+Mulato+Lagos+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot sight"></div>
+      <div class="tl-time">10:00 – 12:00</div>
+      <div class="tl-title">Ponta da Piedade — klify</div>
+      <div class="tl-desc">Parking przy wejściu (~1,50 €/h). Chodniki po klifach utwardzone i płaskie — bezpieczne z kijkami. NIE schodzić schodami na dół (200 stromych stopni). Widok ze szczytu jest absolutnie wystarczający.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Ponta+da+Piedade+Lagos+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.0531,-8.9923&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot hidden"></div>
+      <div class="tl-time">12:00 – 13:00</div>
+      <div class="tl-title">Rejs łódką spod klifów (polecany!)</div>
+      <div class="tl-desc">Wypłynięcie z małego portu Lagos (Avenida dos Descobrimentos) — płaskie nabrzeże, wejście bez schodów. Rejs ~45 min, ok. 20 €/os. Z łódki widać łuki skalne od środka — lepiej niż z góry! Firmy: Bon Dia Boat Trips, Sea Adventures Algarve — rezerwacja na miejscu lub online.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Avenida+dos+Descobrimentos+Lagos+Portugal+marina" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Lagos+marina+Avenida+dos+Descobrimentos&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot sight"></div>
+      <div class="tl-time">13:30 – 15:00</div>
+      <div class="tl-title">Stare miasto Lagos</div>
+      <div class="tl-desc">Mury miejskie, Rua 25 de Abril (deptak), Igreja de Santo António z pozłacanym barokiem i azulejos. Praça Gil Eanes. Teren płaski, bruk regularny — komfortowo z kijkami.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Praça+Gil+Eanes+Lagos+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Praça+Gil+Eanes+Lagos+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot food"></div>
+      <div class="tl-time">15:00 – 16:30</div>
+      <div class="tl-title">Lunch: Restaurante A Forca</div>
+      <div class="tl-desc">Lokalna, bez turystycznych cen. Polecane: percebes (pąkle), polvo à lagareiro (ośmiornica z oliwą i czosnkiem). Alternatywa z tarasem: Bon Vivant — drożej, ale wyjątkowa lokalizacja.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Restaurante+A+Forca+Lagos+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Restaurante+A+Forca+Lagos+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot tip"></div>
+      <div class="tl-time">~19:30</div>
+      <div class="tl-title">Powrót do Ferragudo</div>
+      <div class="tl-desc">~40 min. Ewentualnie krótki stop w Carvoeiro — urokliwe klifowe miasteczko po drodze.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== DAY 3: niedziela ======================== -->
+<div id="panel-day3" class="panel">
+  <div class="section-title">Niedziela, 12 kwietnia</div>
+  <div class="section-sub">Sagres + Cabo de São Vicente · <strong>~70 min jazdy</strong> · wyjazd ok. 9:30</div>
+  <div class="note-box">Najdłuższy przejazd tygodnia, ale absolutnie tego warto. Cabo de São Vicente to jeden z najbardziej poruszających punktów w Europie. Plan: twierdza rano, przylądek dwukrotnie (południe + zachód słońca).</div>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-dot food"></div>
+      <div class="tl-time">9:30 – 10:15</div>
+      <div class="tl-title">Śniadanie w Sagres</div>
+      <div class="tl-desc">Café Bossa Nova lub Dromedário w centrum Sagres — surferskie śniadanie: tostada, świeże soki, jaja. Sagres to jeszcze nie turystyczny cyrk.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Café+Bossa+Nova+Sagres+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Sagres+centro+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot sight"></div>
+      <div class="tl-time">10:30 – 12:00</div>
+      <div class="tl-title">Fortaleza de Sagres</div>
+      <div class="tl-desc">Twierdza Henryka Żeglarza z XV w. Rosa dos Ventos (kamienna wiatrówka 43m średnicy). Teren w środku płaski, trawiaste alejki — idealne z kijkami. Bilet ok. 3 €.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Fortaleza+de+Sagres+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=36.9994,-8.9445&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot hidden"></div>
+      <div class="tl-time">12:15</div>
+      <div class="tl-title">Praia do Beliche — postój z widokiem</div>
+      <div class="tl-desc">Po drodze między Sagres a przylądkiem. Piękna zatoka między klifami. Zejście strome — tylko widok z góry (parkingu), ale robi wrażenie.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Praia+do+Beliche+Sagres+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Praia+do+Beliche+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot sight"></div>
+      <div class="tl-time">12:45 – 14:00</div>
+      <div class="tl-title">Cabo de São Vicente — południe</div>
+      <div class="tl-desc">Parking przy samej krawędzi, teren płaski. 60-metrowe klify prosto do Atlantyku. Latarnia morska. Vendedoras sprzedają swetry z lokalnej wełny (25–40 €) — naprawdę ciepłe i użyteczne. UWAGA: zawsze wieje — ciepła kurtka obowiązkowa!</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Cabo+de+São+Vicente+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.0237,-8.9983&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot food"></div>
+      <div class="tl-time">14:30 – 16:00</div>
+      <div class="tl-title">Obiad: Restaurante Mum's (Sagres)</div>
+      <div class="tl-desc">Najczęściej polecana przez miejscowych. Tania, porcje ogromne. Grilled fish of the day, arroz de lingueirão. Rezerwacja wskazana w niedzielę.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Restaurante+Mum%27s+Sagres+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Restaurante+Mum%27s+Sagres+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot tip"></div>
+      <div class="tl-time">17:00 – 19:30</div>
+      <div class="tl-title">Odpoczynek + powrót na przylądek</div>
+      <div class="tl-desc">Kawa w Sagres, spacer po miasteczku. Na Cabo São Vicente wróć ok. 19:45–20:00, żeby złapać całe przejście słońca.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Sagres+centro+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Sagres+centro+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot sight"></div>
+      <div class="tl-time">20:00 – 20:35</div>
+      <div class="tl-title">ZACHÓD SŁOŃCA na Cabo de São Vicente</div>
+      <div class="tl-desc">Słońce chodzi w Atlantyk dokładnie na horyzoncie między latarnią a klifem. Jedno z tych doświadczeń których się nie zapomina. Warto zabrać termos z herbatą.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Cabo+de+São+Vicente+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.0237,-8.9983&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+  </div>
+  <div class="warn-box">Powrót do Ferragudo ~1h — wrócisz ok. 22:00. Długi dzień, ale wart każdej minuty.</div>
+</div>
+
+<!-- ======================== DAY 4: poniedziałek ======================== -->
+<div id="panel-day4" class="panel">
+  <div class="section-title">Poniedziałek, 13 kwietnia</div>
+  <div class="section-sub">Silves + Monchique · <strong>Silves 25 min · Monchique 45 min</strong> · wyjazd ok. 9:30</div>
+  <div class="note-box">Dzień historyczny i górski zarazem. Dużo jazdy, mało chodzenia — dobry rytm dla cioci. Silves to mauretańska stolica sprzed 800 lat; Monchique — zupełnie inny świat niż nadmorskie Algarve.</div>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-dot sight"></div>
+      <div class="tl-time">9:30 – 11:30</div>
+      <div class="tl-title">Silves — zamek i katedra</div>
+      <div class="tl-desc">Castelo de Silves (XII w., mauretańska forteca) — bilet 2,80 €. Dziedziniec dostępny, mury do odpuszczenia. Z zewnątrz: widok na sady pomarańczowe i bociany na wieżach. Katedra gotycka obok — bez barier wejściowych.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Castelo+de+Silves+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.1893,-8.4388&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot food"></div>
+      <div class="tl-time">11:30 – 12:30</div>
+      <div class="tl-title">Kawa i lunch: Café Inglês</div>
+      <div class="tl-desc">Tuż przy zamku, taras z widokiem. Frango no churrasco (kurczak z rożna), dorada grelhada, lokalne wino z Alentejo 3–4 €/kieliszek. Lunche od 12:00.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Café+Inglês+Silves+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Café+Inglês+Silves+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot hidden"></div>
+      <div class="tl-time">13:30 – 15:00</div>
+      <div class="tl-title">Monchique — górska wioska</div>
+      <div class="tl-desc">30 min serpentynami przez eukaliptusy. Miasteczko na 458 m n.p.m. Główny deptak dostępny. Zakupy: medronho (brandy z drzewa truskawkowego), miody, ceramika. Taras widokowy z kawą — obowiązek.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Monchique+Algarve+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.3193,-8.5547&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot hidden"></div>
+      <div class="tl-time">15:15 – 16:00</div>
+      <div class="tl-title">Foia — najwyższy szczyt Algarve (902 m)</div>
+      <div class="tl-desc">10 min samochodem od Monchique. Parking przy wieży telekomunikacyjnej — wysiadasz, patrzysz, wsiadasz. W jasny dzień widać oba wybrzeża. Zero chodzenia wymagane.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Foia+Monchique+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.3266,-8.5897&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot food"></div>
+      <div class="tl-time">16:30 – 18:00</div>
+      <div class="tl-title">Kolacja: Restaurante Central (Monchique)</div>
+      <div class="tl-desc">Kuchnia górska — chouriço prażony na alkoholu przy stole, javali (dzik) guisado, costeletas de porco preto (żeberka czarnej świni). Zupełnie inny świat niż nadmorski seafood.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Restaurante+Central+Monchique+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Restaurante+Central+Monchique+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot tip"></div>
+      <div class="tl-time">18:30</div>
+      <div class="tl-title">Powrót do Ferragudo (~40 min)</div>
+      <div class="tl-desc">Najwcześniejszy powrót tygodnia — zasłużony relaks.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== DAY 5: wtorek ======================== -->
+<div id="panel-day5" class="panel">
+  <div class="section-title">Wtorek, 14 kwietnia</div>
+  <div class="section-sub">Faro + Ria Formosa · <strong>~45 min jazdy</strong> · wyjazd ok. 9:00</div>
+  <div class="note-box">Kultura miejska + dzika przyroda w jednym dniu. Kluczowy element: rejs łódką — zarezerwuj z wyprzedzeniem! Firmy: formosamar.com lub animaris.pt.</div>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-dot food"></div>
+      <div class="tl-time">9:30 – 10:15</div>
+      <div class="tl-title">Śniadanie: Mercado Municipal de Faro</div>
+      <div class="tl-desc">Świeże soki, kroissanty, lokalne sery. Targ na poziomie 0, wejście rampą. Dobre miejsce na zakup owoców na rejs.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Mercado+Municipal+Faro+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.0171,-7.9341&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot sight"></div>
+      <div class="tl-time">10:30 – 12:00</div>
+      <div class="tl-title">Cidade Velha — stare miasto Faro</div>
+      <div class="tl-desc">Wejście przez Arco da Vila (łuk z bocianem). Bruk regularny — z kijkami komfortowo. Katedra Sé (wieża opcjonalnie — strome schody). Kaplica kości Igreja das Ossos — mniej znana niż ta w Évora, równie poruszająca, bilet 2 €.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Arco+da+Vila+Faro+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.0145,-7.9339&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot sight"></div>
+      <div class="tl-time">12:30 – 14:30</div>
+      <div class="tl-title">Rejs po Ria Formosa</div>
+      <div class="tl-desc">Formosamar lub Animaris — pontony z niskim wejściem, bez schodów. Rejs ~2h, 25–35 €/os. Trasa: laguny, wyspy barierowe, flamingi, czaple, rybacy przy pracy. Można wyskoczyć na Ilha Deserta — dzika plaża bez samochodów.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Formosamar+Faro+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Formosamar+Faro+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot food"></div>
+      <div class="tl-time">15:00 – 16:30</div>
+      <div class="tl-title">Lunch: Restaurante 2 Irmãos (od 1925!)</div>
+      <div class="tl-desc">Jeden z najstarszych lokali w Faro, przy samej Ria Formosa. Camarão à guilho (krewetki czosnkowe), arroz de lingueirão. Ceny uczciwe jak na jakość.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Restaurante+2+Irmãos+Faro+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Restaurante+2+Irmãos+Faro+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot hidden"></div>
+      <div class="tl-time">17:00 – 18:30</div>
+      <div class="tl-title">Jardim Manuel Bivar</div>
+      <div class="tl-desc">Ogród nad mariną — ławki, palmy, widok na jachty i ptaki Ria Formosa. Idealne miejsce na kawę i odpoczynek. Faro o tej porze jest piękne i spokojne.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Jardim+Manuel+Bivar+Faro+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.0164,-7.9323&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot tip"></div>
+      <div class="tl-time">~19:30</div>
+      <div class="tl-title">Powrót do Ferragudo</div>
+      <div class="tl-desc">~45 min autostradą A22. Sprawdź przy odbiorze auta kartę Toll Service lub EasyToll — bez tego za przejazdy przychodzi kara do Polski.</div>
+    </div>
+  </div>
+  <div class="warn-box">Zarezerwuj rejs minimum 2–3 dni wcześniej: formosamar.com lub animaris.pt</div>
+</div>
+
+<!-- ======================== DAY 6: środa ======================== -->
+<div id="panel-day6" class="panel">
+  <div class="section-title">Środa, 15 kwietnia</div>
+  <div class="section-sub">Tavira + Cacela Velha · <strong>~1h 20 min jazdy</strong> · wyjazd ok. 9:00 · wieczorem: spakuj bagaże!</div>
+  <div class="note-box">Najlepszy dzień dla cioci — Tavira jest płaskie jak stół, eleganckie i pełne uroku. Cacela Velha to 20-minutowy postój, który większość turystów omija, a jest absolutną perełką Algarve.</div>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-dot food"></div>
+      <div class="tl-time">9:30 – 10:15</div>
+      <div class="tl-title">Śniadanie w Tavira</div>
+      <div class="tl-desc">Pastelaria przy Praça da República — espresso z mleczkiem i croissant z serem za ok. 2,50 €. ~1h drogi od Ferragudo.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Praça+da+República+Tavira+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.1256,-7.6509&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot sight"></div>
+      <div class="tl-time">10:30 – 12:30</div>
+      <div class="tl-title">Tavira — miasto 37 kościołów</div>
+      <div class="tl-desc">Most Ponte Romana nad rzeką Gilão (płaski), Praça da República, Castelo de Tavira (dziedziniec + ogród z widokiem). Unikalna architektura: dachy piramidalne (estilo tetra) — arabska spuścizna. Tuk-tuk widokowy jeśli potrzeba przerwy od chodzenia.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Castelo+de+Tavira+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.1260,-7.6504&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot food"></div>
+      <div class="tl-time">12:30 – 14:00</div>
+      <div class="tl-title">Lunch: Aquasul lub Restaurante Bica</div>
+      <div class="tl-desc">Aquasul — taras przy rzece Gilão, dorsz i krewetki. Bica — tańszy, bardziej lokalny, cataplana de peixe. Oba w centrum.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Restaurante+Aquasul+Tavira+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Restaurante+Aquasul+Tavira+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot hidden"></div>
+      <div class="tl-time">15:00 – 16:30</div>
+      <div class="tl-title">Cacela Velha — sekretna wioska na klifie</div>
+      <div class="tl-desc">20 min na wschód od Taviry. Maleńka wioska (~200 mieszkańców) z widokiem na laguny Ria Formosa — zupełnie poza szlakiem turystycznym. Kościółek z XVII w., ruiny fortu, bar z zimnym piwem i widokiem. Parking na górze, spacer po wiosce tylko 200 m.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Cacela+Velha+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.1689,-7.5452&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot tip"></div>
+      <div class="tl-time">17:00 – 19:00</div>
+      <div class="tl-title">Powrót + ostatnia kolacja w Ferragudo</div>
+      <div class="tl-desc">~1h drogi. Wieczór w miasteczku — ostatnia kolacja na miejscu. Polecane: O Barão (lokalne, bez karty w 6 językach) lub wino z deską serów na tarasie Airbnb.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=O+Barão+Ferragudo+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=O+Barão+Ferragudo+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== DAY 7: czwartek POWRÓT ======================== -->
+<div id="panel-day7" class="panel">
+  <div class="section-title">Czwartek, 16 kwietnia</div>
+  <div class="section-sub">Carvoeiro + lot FR6246 14:20 · <strong>check-out 12:00</strong> · Carvoeiro 15 min · lotnisko 45 min od Ferragudo</div>
+  <div class="warn-box">Lot o 14:20 — odprawy Ryanair zamykają się ~40 min przed odlotem (ok. 13:40). Na lotnisku bądź o 12:30–12:45. Wyjazd z Ferragudo najpóźniej 11:15 (lotnisko ~45 min).</div>
+  <div style="height: 1rem;"></div>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-dot tip"></div>
+      <div class="tl-time">8:00 – 9:00</div>
+      <div class="tl-title">Pakowanie i check-out</div>
+      <div class="tl-desc">Upewnij się wcześniej o godzinie check-outu Airbnb. Bagaże do auta.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot sight"></div>
+      <div class="tl-time">9:15 – 10:45</div>
+      <div class="tl-title">Carvoeiro — Algar Seco i klify</div>
+      <div class="tl-desc">15 min od Ferragudo. Algar Seco — utwardzone ścieżki z barierkami, platforma widokowa, ZERO stromizny. Klify w innym stylu niż Ponta da Piedade — bardziej skaliste i dzikie. Potem miasteczko Carvoeiro — jedna ulica, kafejki z widokiem na plażę poniżej.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Algar+Seco+Carvoeiro+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.0913,-8.4701&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot food"></div>
+      <div class="tl-time">10:45 – 11:15</div>
+      <div class="tl-title">Ostatnie pastéis de nata</div>
+      <div class="tl-desc">Kawiarnia w Carvoeiro — usiąść na zewnątrz, zjeść powoli, powiedzieć "obrigado" Algarve.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Carvoeiro+centro+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?q=Carvoeiro+centro+Portugal&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot tip"></div>
+      <div class="tl-time">11:15 → 12:15</div>
+      <div class="tl-title">Wyjazd do lotniska Faro</div>
+      <div class="tl-desc">~45 min jazdy. Zwrot auta przy lotnisku — sprawdź godzinę zamknięcia punktu wypożyczalni wcześniej. Faro Airport: mały i sprawny.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Faro+Airport+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.0144,-7.9659&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot food"></div>
+      <div class="tl-time">12:30 – 14:00</div>
+      <div class="tl-title">Lotnisko Faro</div>
+      <div class="tl-desc">Bar przy bramkach — ostatni obiad w Portugalii: bifanas i lokalne piwo. Sklep duty-free: licor de alfarroba (likier z chleba świętojańskiego), designerskie konserwy rybne, vinho verde do bagażu.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/?q=Faro+Airport+FAO+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.0144,-7.9659&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot sight"></div>
+      <div class="tl-time">14:20</div>
+      <div class="tl-title">FR6246 Faro → Warszawa Modlin (19:25)</div>
+      <div class="tl-desc">Po prawej stronie samolotu przy starcie: widok na Ria Formosa z lotu ptaka — ostatnie spojrzenie na Algarve.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== INFO PRAKTYCZNE ======================== -->
+<div id="panel-info" class="panel">
+  <div class="section-title">Info praktyczne</div>
+  <div class="section-sub">Wszystko co warto wiedzieć przed i w trakcie wyjazdu</div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-label">Przylot</div>
+      <div class="info-card-value">9 kwi, 23:10</div>
+      <div class="info-card-sub">FR6247 · Faro</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-label">Odlot</div>
+      <div class="info-card-value">16 kwi, 14:20</div>
+      <div class="info-card-sub">FR6246 · Faro</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-label">Airbnb · check-in</div>
+      <div class="info-card-value">15:00</div>
+      <div class="info-card-sub">9 kwi · kod: HMT9FC5JSQ</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-label">Airbnb · check-out</div>
+      <div class="info-card-value">12:00</div>
+      <div class="info-card-sub">16 kwi · spakuj się śr. wieczorem!</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-label">Adres bazy</div>
+      <div class="info-card-value">Rua de Vale da Azenhaga</div>
+      <div class="info-card-sub">Ferragudo, Faro 8400, PT</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-label">Pogoda kwiecień</div>
+      <div class="info-card-value">~20°C</div>
+      <div class="info-card-sub">mało turystów</div>
+    </div>
+  </div>
+
+  <div class="date-sep"><div class="date-sep-line"></div><div class="date-sep-label">czasy jazdy z Ferragudo</div><div class="date-sep-line"></div></div>
+  <div class="note-box">
+    <strong>Odległości od bazy (Rua de Vale da Azenhaga):</strong><br>
+    🟢 Portimão — <strong>5 min</strong><br>
+    🟢 Carvoeiro — <strong>15 min</strong><br>
+    🟡 Silves — <strong>25 min</strong><br>
+    🟡 Lagos / Ponta da Piedade — <strong>35 min</strong><br>
+    🟡 Monchique — <strong>45 min</strong><br>
+    🟡 Faro / lotnisko — <strong>45 min</strong><br>
+    🔴 Sagres + Cabo de São Vicente — <strong>70 min</strong><br>
+    🔴 Tavira — <strong>1h 20 min</strong>
+  </div>
+
+  <div class="date-sep"><div class="date-sep-line"></div><div class="date-sep-label">autostrady</div><div class="date-sep-line"></div></div>
+  <div class="note-box">
+    <strong>Toll Service / EasyToll</strong> — przy odbiorze auta zapytaj o kartę do autostrad. A22 (Via do Infante) jest płatna. Bez rejestracji za przejazdy przychodzi kara do Polski po powrocie. Alternatywa: jechać N125 (bezpłatna droga krajowa, malownicza, ale wolniej).
+  </div>
+
+  <div class="date-sep"><div class="date-sep-line"></div><div class="date-sep-label">kijki nordic walking</div><div class="date-sep-line"></div></div>
+  <div class="note-box">
+    Ryanair: kijki składane do 115 cm sumy wymiarów (dł+szer+wys) jako bagaż podręczny. Kijki dłuższe → bagaż rejestrowany. Sprawdź wymiary przed wyjazdem!
+  </div>
+
+  <div class="date-sep"><div class="date-sep-line"></div><div class="date-sep-label">rezerwacje</div><div class="date-sep-line"></div></div>
+  <div class="note-box">
+    <strong>Rejs Ria Formosa</strong> — zarezerwuj z wyprzedzeniem:<br>
+    · formosamar.com<br>
+    · animaris.pt<br><br>
+    <strong>Restauracje</strong> — rezerwacja konieczna tylko w weekendy w popularnych miejscach (Lagos, Sagres w niedzielę). W środku tygodnia zwykle bez problemu.
+  </div>
+
+  <div class="date-sep"><div class="date-sep-line"></div><div class="date-sep-label">dostępność dla cioci</div><div class="date-sep-line"></div></div>
+  <div class="note-box">
+    Miejsca w pełni dostępne z kijkami:<br>
+    ✓ Ferragudo promenada<br>
+    ✓ Cabo de São Vicente (parking przy krawędzi)<br>
+    ✓ Fortaleza de Sagres<br>
+    ✓ Tavira centrum<br>
+    ✓ Cacela Velha (200m spacer)<br>
+    ✓ Rejs po Ria Formosa (płaski pomost)<br>
+    ✓ Algar Seco, Carvoeiro<br><br>
+    Wymagające — omijamy zejście:<br>
+    ✗ Schody Ponta da Piedade (200 stopni)<br>
+    ✗ Mury zamku Silves<br>
+    ✗ Wieża katedry w Faro
+  </div>
+
+  <div class="date-sep"><div class="date-sep-line"></div><div class="date-sep-label">gastronomia — co zamawiać</div><div class="date-sep-line"></div></div>
+  <div class="note-box">
+    <strong>Obowiązkowe dania:</strong><br>
+    · Cataplana de marisco — garnek z owocami morza<br>
+    · Ameijoas na bulhão pato — małże z czosnkiem<br>
+    · Polvo à lagareiro — ośmiornica z oliwą<br>
+    · Percebes — pąkle (raritas!)<br>
+    · Arroz de lingueirão — ryż z małżami<br>
+    · Frango piri-piri — kurczak z sosem chili<br><br>
+    <strong>Do picia:</strong><br>
+    · Vinho verde (białe, lekkie, do ryb)<br>
+    · Sagres lub Super Bock (miejscowe piwa)<br>
+    · Medronho (brandy z Monchique — kupić w górach)<br>
+    · Ginjinha / licor de alfarroba (likiery)<br><br>
+    <strong>Unikać:</strong> restauracji z menu w 6 językach i zdjęciami potraw.
+  </div>
+
+  <div class="date-sep"><div class="date-sep-line"></div><div class="date-sep-label">co przywieźć</div><div class="date-sep-line"></div></div>
+  <div class="note-box">
+    · Designerskie konserwy rybne (3–5 €, świetny prezent)<br>
+    · Medronho z Monchique<br>
+    · Licor de alfarroba (z chleba świętojańskiego)<br>
+    · Swetr z lokalnej wełny (vendedoras przy Cabo, 25–40 €)<br>
+    · Vinho verde do bagażu rejestrowanego<br>
+    · Azulejos (kafelki) — małe magnesy lub podstawki
+  </div>
+</div>
+
+
+<!-- ======================== ZAKUPY ======================== -->
+<div id="panel-zakupy" class="panel">
+  <div class="section-title">Lista zakupów</div>
+  <div class="section-sub">Co kupić przed wyjazdem do Portugalii</div>
+
+  <div class="cl-summary-box" id="zakupy-summary">
+    <div class="cl-summary-stat"><div class="cl-summary-num" id="z-done">0</div><div class="cl-summary-lbl">gotowe</div></div>
+    <div class="cl-summary-stat"><div class="cl-summary-num" id="z-left">0</div><div class="cl-summary-lbl">do zrobienia</div></div>
+    <div class="cl-summary-stat"><div class="cl-summary-num" id="z-pct">0%</div><div class="cl-summary-lbl">ukończono</div></div>
+  </div>
+
+  <!-- APTECZKA I ZDROWIE -->
+  <div class="checklist-section" id="zs-apteczka">
+    <div class="checklist-heading">
+      <span class="cl-icon">💊</span> Apteczka i zdrowie
+      <span class="cl-progress" id="prog-apteczka"></span>
+    </div>
+    <div class="cl-bar-wrap"><div class="cl-bar" id="bar-apteczka" style="width:0%"></div></div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-krem-spf">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Krem z filtrem SPF 30–50</div><div class="cl-sub">Słońce w Algarve w kwietniu zaskakuje — weź duży tub</div></div>
+      <span class="cl-tag cl-tag-red">konieczne</span>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-ibuprofen">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Ibuprofen / Paracetamol</div><div class="cl-sub">Na bóle po długich spacerach</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-stoperan">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Stoperan / Smecta</div><div class="cl-sub">Na wszelki wypadek przy zmianie diety (owoce morza)</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-plastry">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Plastry na otarcia</div><div class="cl-sub">Bruk i kamienne uliczki robią swoje — szczególnie dla cioci</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-owady">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Środek na owady</div><div class="cl-sub">Wieczory przy wodzie — komary bywają aktywne</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-ekuz">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Wydrukuj karty EKUZ (dla wszystkich 3 osób)</div><div class="cl-sub">Bezpłatne przez NFZ online — niezbędne w razie wizyty lekarskiej</div></div>
+      <span class="cl-tag cl-tag-red">konieczne</span>
+    </div>
+  </div>
+
+  <!-- ELEKTRONIKA -->
+  <div class="checklist-section" id="zs-elektronika">
+    <div class="checklist-heading">
+      <span class="cl-icon">🔌</span> Elektronika
+      <span class="cl-progress" id="prog-elektronika"></span>
+    </div>
+    <div class="cl-bar-wrap"><div class="cl-bar" id="bar-elektronika" style="width:0%"></div></div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-powerbank">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Powerbank (min. 10 000 mAh)</div><div class="cl-sub">Długie dni zwiedzania bez gniazdka — konieczność</div></div>
+      <span class="cl-tag cl-tag-blue">polecane</span>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-kabel">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Kabel USB-C + ładowarka sieciowa</div><div class="cl-sub">Gniazdka w Portugali = europejskie typ F — adapter zbędny 🎉</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-sluchawki">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Słuchawki / ANC na lot</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-mapy">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Pobierz mapy offline — Algarve</div><div class="cl-sub">Google Maps lub Maps.me — przed wylotem, na WiFi</div></div>
+      <span class="cl-tag cl-tag-red">konieczne</span>
+    </div>
+  </div>
+
+  <!-- DOKUMENTY -->
+  <div class="checklist-section" id="zs-dokumenty">
+    <div class="checklist-heading">
+      <span class="cl-icon">📄</span> Dokumenty i formalności
+      <span class="cl-progress" id="prog-dokumenty"></span>
+    </div>
+    <div class="cl-bar-wrap"><div class="cl-bar" id="bar-dokumenty" style="width:0%"></div></div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-dowod">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Sprawdź ważność dowodów osobistych (wszystkich 3)</div><div class="cl-sub">Portugalia = Schengen, wystarczy dowód — ale musi być ważny</div></div>
+      <span class="cl-tag cl-tag-red">konieczne</span>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-prawo-jazdy">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Prawo jazdy</div><div class="cl-sub">Do wypożyczalni auta — sprawdź termin ważności</div></div>
+      <span class="cl-tag cl-tag-red">konieczne</span>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-boarding">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Boarding pass w aplikacji Ryanair</div><div class="cl-sub">Rezerwacja X19T6G — odprawa online otwiera się 48h przed lotem (7 kwi ~19:50)</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-airbnb-offline">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Zapisz adres Airbnb i kod wejścia offline</div><div class="cl-sub">Przylatujesz po 23:00 — nie licz na zasięg</div></div>
+      <span class="cl-tag cl-tag-amber">ważne</span>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-bank">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Powiadom bank o wyjeździe zagranicznym</div><div class="cl-sub">Aby karta nie została zablokowana przy transakcjach w Portugalii</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-gotowka">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Gotówka w euro (100–150 €)</div><div class="cl-sub">Lokale rybne, targowiska, napiwki — nie wszędzie terminal</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-toll">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Zapytaj o kartę Toll/EasyToll przy odbiorze auta</div><div class="cl-sub">A22 (Via do Infante) jest płatna — bez karty kara przychodzi do Polski</div></div>
+      <span class="cl-tag cl-tag-red">konieczne</span>
+    </div>
+  </div>
+
+  <!-- UBRANIA -->
+  <div class="checklist-section" id="zs-ubrania">
+    <div class="checklist-heading">
+      <span class="cl-icon">👕</span> Co warto dokupić
+      <span class="cl-progress" id="prog-ubrania"></span>
+    </div>
+    <div class="cl-bar-wrap"><div class="cl-bar" id="bar-ubrania" style="width:0%"></div></div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-buty-wygodne">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Wygodne buty do chodzenia (jeśli nie masz)</div><div class="cl-sub">Dużo bruku i kamiennych uliczek — to priorytet numer jeden</div></div>
+      <span class="cl-tag cl-tag-red">konieczne</span>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-stroj">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Strój kąpielowy</div><div class="cl-sub">Ocean może być chłodny (~18°C), ale plaże są piękne</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-okulary">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Okulary przeciwsłoneczne</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-czapka">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Czapka z daszkiem lub lekki kapelusz</div><div class="cl-sub">Na klify i plaże — słońce bez cienia bywa silne</div></div>
+    </div>
+  </div>
+
+  <!-- REZERWACJE -->
+  <div class="checklist-section" id="zs-rezerwacje">
+    <div class="checklist-heading">
+      <span class="cl-icon">📅</span> Rezerwacje do zrobienia
+      <span class="cl-progress" id="prog-rezerwacje"></span>
+    </div>
+    <div class="cl-bar-wrap"><div class="cl-bar" id="bar-rezerwacje" style="width:0%"></div></div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-rejs-formosa">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Rejs po Ria Formosa — formosamar.com lub animaris.pt</div><div class="cl-sub">Wtorek 14 kwi — zarezerwuj 2–3 dni wcześniej</div></div>
+      <span class="cl-tag cl-tag-amber">przed wyjazdem</span>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'z')" data-id="z-rejs-lagos">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Rejs przy Ponta da Piedade (Lagos) — na sobotę 11 kwi</div><div class="cl-sub">Łódka przez groty — zarezerwuj przez Viator lub lokalnie</div></div>
+      <span class="cl-tag cl-tag-amber">przed wyjazdem</span>
+    </div>
+  </div>
+
+  <button class="cl-reset-btn" onclick="resetPanel('z')">↺ Wyczyść listę zakupów</button>
+</div>
+
+<!-- ======================== PAKOWANIE ======================== -->
+<div id="panel-pakowanie" class="panel">
+  <div class="section-title">Pakowanie</div>
+  <div class="section-sub">Co zabrać + co przywieźć w drodze powrotnej</div>
+
+  <div class="cl-summary-box">
+    <div class="cl-summary-stat"><div class="cl-summary-num" id="p-done">0</div><div class="cl-summary-lbl">spakowane</div></div>
+    <div class="cl-summary-stat"><div class="cl-summary-num" id="p-left">0</div><div class="cl-summary-lbl">zostało</div></div>
+    <div class="cl-summary-stat"><div class="cl-summary-num" id="p-pct">0%</div><div class="cl-summary-lbl">gotowość</div></div>
+  </div>
+
+  <div class="note-box">✈️ Masz priorytet + 2 bagaże podręczne (Ryanair). Ogranicz bagaż podręczny do 40×20×25 cm + większy do 55×40×20 cm. Płyny do 100 ml w przezroczystej saszetce.</div>
+
+  <!-- UBRANIA -->
+  <div class="checklist-section" id="ps-ubrania">
+    <div class="checklist-heading">
+      <span class="cl-icon">👕</span> Ubrania
+      <span class="cl-progress" id="prog-p-ubrania"></span>
+    </div>
+    <div class="cl-bar-wrap"><div class="cl-bar" id="bar-p-ubrania" style="width:0%"></div></div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-koszule">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">T-shirty / koszule (5–6 szt.)</div><div class="cl-sub">Kwiecień ~20°C w dzień — lekkie, oddychające</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-bluza">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Cienka bluza / sweter</div><div class="cl-sub">Wieczory chłodniejsze (~15°C), wiatr na klifach</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-kurtka">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Lekka kurtka wiatrówka</div><div class="cl-sub">Na Cabo de São Vicente i klify — wieje mocno</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-spodnie">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Spodnie długie (2 pary)</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-szorty">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Szorty (1–2 pary)</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-kapielowy">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Strój kąpielowy</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-bielizna">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Bielizna i skarpetki (7 kompletów)</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-buty-trek">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Buty do chodzenia (wygodne!)</div><div class="cl-sub">Priorytet — bruk i kamienne uliczki przez cały tydzień</div></div>
+      <span class="cl-tag cl-tag-red">konieczne</span>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-sandaly">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Sandały / klapki</div><div class="cl-sub">Na plaże i wieczorne spacery</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-okulary">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Okulary przeciwsłoneczne</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-czapka">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Czapka z daszkiem</div></div>
+    </div>
+  </div>
+
+  <!-- KOSMETYKI -->
+  <div class="checklist-section" id="ps-kosmetyki">
+    <div class="checklist-heading">
+      <span class="cl-icon">🧴</span> Kosmetyki (do 100 ml lub w luku)
+      <span class="cl-progress" id="prog-p-kosmetyki"></span>
+    </div>
+    <div class="cl-bar-wrap"><div class="cl-bar" id="bar-p-kosmetyki" style="width:0%"></div></div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-krem">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Krem SPF 30–50</div></div>
+      <span class="cl-tag cl-tag-red">konieczne</span>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-szampon">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Szampon + żel pod prysznic (małe)</div><div class="cl-sub">Lub kup na miejscu — supermarkety w Portimão są duże</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-dezodorant">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Dezodorant</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-pasta">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Pasta do zębów + szczoteczka</div></div>
+    </div>
+  </div>
+
+  <!-- ELEKTRONIKA -->
+  <div class="checklist-section" id="ps-elektronika">
+    <div class="checklist-heading">
+      <span class="cl-icon">📱</span> Elektronika
+      <span class="cl-progress" id="prog-p-elektronika"></span>
+    </div>
+    <div class="cl-bar-wrap"><div class="cl-bar" id="bar-p-elektronika" style="width:0%"></div></div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-telefon">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Telefon + ładowarka</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-power">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Powerbank</div></div>
+      <span class="cl-tag cl-tag-blue">polecane</span>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-aparat">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Aparat fotograficzny (jeśli masz)</div></div>
+    </div>
+  </div>
+
+  <!-- DOKUMENTY DO BAGAŻU -->
+  <div class="checklist-section" id="ps-dokumenty">
+    <div class="checklist-heading">
+      <span class="cl-icon">📁</span> Dokumenty do bagażu
+      <span class="cl-progress" id="prog-p-dokumenty"></span>
+    </div>
+    <div class="cl-bar-wrap"><div class="cl-bar" id="bar-p-dokumenty" style="width:0%"></div></div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-dowody">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Dowody osobiste (3 szt.)</div></div>
+      <span class="cl-tag cl-tag-red">konieczne</span>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-ekuz-bag">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Karty EKUZ (3 szt.)</div></div>
+      <span class="cl-tag cl-tag-red">konieczne</span>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-pl-bag">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Prawo jazdy</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-rezerwacje">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Potwierdzenia Airbnb + wypożyczalni — zapisane offline</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-leki-lista">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Lista leków cioci i wujka po angielsku</div><div class="cl-sub">Na wypadek wizyty u lekarza w Portugali</div></div>
+      <span class="cl-tag cl-tag-amber">ważne</span>
+    </div>
+  </div>
+
+  <!-- DO SPAKOWANIA PRZED POWROTEM -->
+  <div class="date-sep"><div class="date-sep-line"></div><div class="date-sep-label">powrót — co przywieźć</div><div class="date-sep-line"></div></div>
+  <div class="note-box">🛍️ Pamiętaj o miejscu w bagażu! Wino i ciężkie konserwy warto wziąć do luku. Lot powrotny: 16 kwi, 14:20 — wyjazd z Ferragudo maks. 11:15.</div>
+
+  <div class="checklist-section" id="ps-powrot">
+    <div class="checklist-heading">
+      <span class="cl-icon">🎁</span> Prezenty i pamiątki do spakowania
+      <span class="cl-progress" id="prog-p-powrot"></span>
+    </div>
+    <div class="cl-bar-wrap"><div class="cl-bar" id="bar-p-powrot" style="width:0%"></div></div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-konserwy">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Designerskie konserwy rybne (3–5 € szt.)</div><div class="cl-sub">Sardynki, tuńczyk, makrela w oliwie — idealny prezent dla każdego</div></div>
+      <span class="cl-tag cl-tag-green">top prezent</span>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-medronho">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Medronho z Monchique (pon. 13 kwi)</div><div class="cl-sub">Brandy z jagód arbutus — kupić w górach, nie na lotnisku</div></div>
+      <span class="cl-tag cl-tag-green">top prezent</span>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-alfarroba">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Licor de alfarroba (likier z chleba świętojańskiego)</div><div class="cl-sub">Na lotnisku duty-free lub w supermarkecie</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-wino">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Vinho verde (do bagażu rejestrowanego)</div><div class="cl-sub">Lekkie, tanie, pyszne — 3–7 € za butelkę w Continente</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-azulejos">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Azulejos — magnesy lub małe kafelki dekoracyjne</div><div class="cl-sub">Lekkie, nieduże, typowo portugalskie — idealne dla rodziny</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-sweter">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Sweter z lokalnej wełny (vendedoras przy Cabo)</div><div class="cl-sub">25–40 € — sprzedawczynie przy Cabo de São Vicente (nd. 12 kwi)</div></div>
+    </div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-nata">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Paczka pastéis de nata na wynos (lotnisko)</div><div class="cl-sub">Na ostatnią chwilę — piekarnia przy odprawach w Faro</div></div>
+    </div>
+  </div>
+
+  <button class="cl-reset-btn" onclick="resetPanel('p')">↺ Wyczyść listę pakowania</button>
+</div>
+
+</div><!-- /content -->
+
+<div class="footer">
+  Algarve · kwiecień 2026 · Bom viagem!
+</div>
+
+<script>
+// ── Navigation ──────────────────────────────────────────────────────────────
+function show(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+  btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+}
+
+// ── Storage helpers ──────────────────────────────────────────────────────────
+function getState(prefix) {
+  try { return JSON.parse(localStorage.getItem('algarve_' + prefix) || '{}'); } catch { return {}; }
+}
+function saveState(prefix, state) {
+  try { localStorage.setItem('algarve_' + prefix, JSON.stringify(state)); } catch {}
+}
+
+// ── Section→items map ────────────────────────────────────────────────────────
+const sections = {
+  z: {
+    apteczka:   ['z-krem-spf','z-ibuprofen','z-stoperan','z-plastry','z-owady','z-ekuz'],
+    elektronika:['z-powerbank','z-kabel','z-sluchawki','z-mapy'],
+    dokumenty:  ['z-dowod','z-prawo-jazdy','z-boarding','z-airbnb-offline','z-bank','z-gotowka','z-toll'],
+    ubrania:    ['z-buty-wygodne','z-stroj','z-okulary','z-czapka'],
+    rezerwacje: ['z-rejs-formosa','z-rejs-lagos'],
+  },
+  p: {
+    'p-ubrania':    ['p-koszule','p-bluza','p-kurtka','p-spodnie','p-szorty','p-kapielowy','p-bielizna','p-buty-trek','p-sandaly','p-okulary','p-czapka'],
+    'p-kosmetyki':  ['p-krem','p-szampon','p-dezodorant','p-pasta'],
+    'p-elektronika':['p-telefon','p-power','p-aparat'],
+    'p-dokumenty':  ['p-dowody','p-ekuz-bag','p-pl-bag','p-rezerwacje','p-leki-lista'],
+    'p-powrot':     ['p-konserwy','p-medronho','p-alfarroba','p-wino','p-azulejos','p-sweter','p-nata'],
+  }
+};
+
+// ── Toggle a single item ─────────────────────────────────────────────────────
+function toggle(el, prefix) {
+  const id = el.dataset.id;
+  const state = getState(prefix);
+  const isDone = !state[id];
+  state[id] = isDone;
+  saveState(prefix, state);
+  el.classList.toggle('done', isDone);
+  updateSummary(prefix);
+  updateSectionBar(prefix, id);
+}
+
+// ── Update summary counts ─────────────────────────────────────────────────────
+function updateSummary(prefix) {
+  const state = getState(prefix);
+  const allIds = Object.values(sections[prefix]).flat();
+  const done = allIds.filter(id => state[id]).length;
+  const left = allIds.length - done;
+  const pct = allIds.length ? Math.round(done / allIds.length * 100) : 0;
+  document.getElementById(prefix + '-done').textContent = done;
+  document.getElementById(prefix + '-left').textContent = left;
+  document.getElementById(prefix + '-pct').textContent = pct + '%';
+}
+
+// ── Update section progress bar ───────────────────────────────────────────────
+function updateSectionBar(prefix, changedId) {
+  const state = getState(prefix);
+  Object.entries(sections[prefix]).forEach(([sec, ids]) => {
+    if (!ids.includes(changedId) && changedId !== '__all__') return;
+    const done = ids.filter(id => state[id]).length;
+    const pct = ids.length ? Math.round(done / ids.length * 100) : 0;
+    const barKey = prefix === 'z' ? sec : sec.replace('p-', 'p-');
+    const bar = document.getElementById('bar-' + (prefix === 'z' ? '' : '') + barKey);
+    const prog = document.getElementById('prog-' + barKey);
+    if (bar) bar.style.width = pct + '%';
+    if (prog) prog.textContent = done + '/' + ids.length;
+  });
+}
+
+function updateAllBars(prefix) {
+  const state = getState(prefix);
+  Object.entries(sections[prefix]).forEach(([sec, ids]) => {
+    const done = ids.filter(id => state[id]).length;
+    const pct = ids.length ? Math.round(done / ids.length * 100) : 0;
+    const bar = document.getElementById('bar-' + sec);
+    const prog = document.getElementById('prog-' + sec);
+    if (bar) bar.style.width = pct + '%';
+    if (prog) prog.textContent = done + '/' + ids.length;
+  });
+}
+
+// ── Reset a panel ─────────────────────────────────────────────────────────────
+function resetPanel(prefix) {
+  try { localStorage.removeItem('algarve_' + prefix); } catch {}
+  document.querySelectorAll('[data-id^="' + prefix + '-"]').forEach(el => el.classList.remove('done'));
+  updateSummary(prefix);
+  updateAllBars(prefix);
+}
+
+// ── Init: restore state from localStorage ─────────────────────────────────────
+function initChecklist(prefix) {
+  const state = getState(prefix);
+  Object.keys(state).forEach(id => {
+    if (!state[id]) return;
+    const el = document.querySelector('[data-id="' + id + '"]');
+    if (el) el.classList.add('done');
+  });
+  updateSummary(prefix);
+  updateAllBars(prefix);
+}
+
+initChecklist('z');
+initChecklist('p');
+</script>
+</body>
+</html>
