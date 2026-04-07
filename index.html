@@ -1074,6 +1074,11 @@ body {
       <span class="cl-progress" id="prog-p-powrot"></span>
     </div>
     <div class="cl-bar-wrap"><div class="cl-bar" id="bar-p-powrot" style="width:0%"></div></div>
+    <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-starbucks">
+      <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
+      <div><div class="cl-label">Kubki Starbucks Portugal — dla Sha i Nico</div><div class="cl-sub">Starbucks Aqua Mall Portimão (pt. 10 kwi, ~17:00) — edycja Portugal / Algarve</div></div>
+      <span class="cl-tag cl-tag-blue">pt 10 kwi</span>
+    </div>
     <div class="checklist-item" onclick="toggle(this,'p')" data-id="p-konserwy">
       <div class="cl-checkbox"><svg class="cl-check-svg" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>
       <div><div class="cl-label">Designerskie konserwy rybne (3–5 € szt.)</div><div class="cl-sub">Sardynki, tuńczyk, makrela w oliwie — idealny prezent dla każdego</div></div>
@@ -1162,6 +1167,16 @@ body {
       <div class="nav-btns">
         <a class="nav-btn-maps gmaps" href="https://maps.google.com/maps/search/Mercado+Municipal+Portimão+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
         <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.1359,-8.5376&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot hidden"></div>
+      <div class="tl-time">17:00 – 17:45</div>
+      <div class="tl-title">Starbucks Portimão (Aqua Mall)</div>
+      <div class="tl-desc">Po drodze powrotnej — Aqua Mall, 5 min od centrum Portimão. Pamiętaj o kubkach dla Sha i Nico — tu jest największy wybór lokalnych edycji Portugal. Otwarte od 10:00.</div>
+      <div class="nav-btns">
+        <a class="nav-btn-maps gmaps" href="https://maps.google.com/maps/search/Starbucks+Portimão+Aqua+Mall+Portugal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>Google Maps</a>
+        <a class="nav-btn-maps waze" href="https://waze.com/ul?ll=37.1472,-8.5436&navigate=yes" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 9.5c-.6 1.8-2.3 3-4.2 3H11c-1.9 0-3.6-1.2-4.2-3h10.2z"/></svg>Waze</a>
       </div>
     </div>
     <div class="tl-item">
@@ -1608,7 +1623,7 @@ const sections = {
     'p-kosmetyki':  ['p-krem','p-szampon','p-dezodorant','p-pasta'],
     'p-elektronika':['p-telefon','p-power','p-aparat'],
     'p-dokumenty':  ['p-dowody','p-ekuz-bag','p-pl-bag','p-rezerwacje','p-leki-lista'],
-    'p-powrot':     ['p-konserwy','p-medronho','p-alfarroba','p-wino','p-azulejos','p-sweter','p-nata'],
+    'p-powrot':     ['p-starbucks','p-konserwy','p-medronho','p-alfarroba','p-wino','p-azulejos','p-sweter','p-nata'],
   }
 };
 
